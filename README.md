@@ -1,12 +1,16 @@
 ---
-description: BOSON電子積木教學套件
+description: LinkIt 7697 物聯網教學書籍，使用 BlocklyDuino圖形化介面
 ---
 
-# BOSON主頁
+# LinkIt 7697 物聯網教學書籍，使用 BlocklyDuino圖形化介面
 
-![](.gitbook/assets/boson_main.png)
+* 第一章  LinkIt 7697及BlocklyDuino V3簡介
+* 第二章  基礎感測模組  
+* 第三章  進階感測模組
+* 第四章  BLE藍牙通訊
+* 第五章  Wi-Fi無線通訊
 
-翰尼斯企業有限公司為DFRobot公司之BOSON系列展品之台灣總代理。歡迎至[**機器人王國商城**](https://www.robotkingdom.com.tw/product-category/board/boson/)購買，如需更多服務請電洽 02-23062900 或來信 [service@robotkingdom.com.tw](mailto:service@robotkingdom.com.tw)
+作者：曾希哲
+出版：翰吉
 
-Hennes. Co. Ltd is the exclusive agent of DFRobot BOSON series product. For purchasing, please visit [**RobotKingdom**](https://www.robotkingdom.com.tw/product-category/board/boson/). For further information, please call 02-23062900 or mail to [service@robotkingdom.com.tw](mailto:service@robotkingdom.com.tw)
-
+購買本書相關硬體，歡迎至[**機器人王國商城**](https://www.robotkingdom.com.tw/?s=7697&post_type=product/)購買，如需更多服務請電洽 02-23062900 或來信 [service@robotkingdom.com.tw](mailto:service@robotkingdom.com.tw)
