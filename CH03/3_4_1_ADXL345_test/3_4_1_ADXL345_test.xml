@@ -1,0 +1,127 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="33" x="-12" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="86">
+        <field name="SPEED">115200</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="36">
+        <statement name="CONTENT">
+          <block type="serial_println" id="94" inline="false">
+            <value name="CONTENT">
+              <block type="text_join" id="112" inline="false">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="119">
+                    <field name="TEXT">X軸:</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="adxl345_read" id="105">
+                    <field name="SENSOR">DUMMY</field>
+                    <field name="PIN">PIN</field>
+                    <field name="AXIS">X</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="120" inline="false">
+                <value name="CONTENT">
+                  <block type="text_join" id="121" inline="false">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="122">
+                        <field name="TEXT">Y軸:</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="adxl345_read" id="123">
+                        <field name="SENSOR">DUMMY</field>
+                        <field name="PIN">PIN</field>
+                        <field name="AXIS">Y</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="124" inline="false">
+                    <value name="CONTENT">
+                      <block type="text_join" id="125" inline="false">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="126">
+                            <field name="TEXT">Z軸:</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="adxl345_read" id="127">
+                            <field name="SENSOR">DUMMY</field>
+                            <field name="PIN">PIN</field>
+                            <field name="AXIS">Z</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="128" inline="false">
+                        <value name="CONTENT">
+                          <block type="text_join" id="129" inline="false">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="130">
+                                <field name="TEXT">俯仰角度:</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="adxl345_read_attitude" id="141">
+                                <field name="SENSOR">DUMMY</field>
+                                <field name="PIN">PIN</field>
+                                <field name="ATTITUDE">Pitch</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="142" inline="false">
+                            <value name="CONTENT">
+                              <block type="text_join" id="143" inline="false">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="144">
+                                    <field name="TEXT">翻滾角度:</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="adxl345_read_attitude" id="145">
+                                    <field name="SENSOR">DUMMY</field>
+                                    <field name="PIN">PIN</field>
+                                    <field name="ATTITUDE">Roll</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="157" inline="false">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="158">
+                                    <field name="NUM">200</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

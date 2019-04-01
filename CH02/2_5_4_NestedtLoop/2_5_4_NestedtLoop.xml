@@ -1,0 +1,108 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="66" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="79">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="67">
+        <statement name="CONTENT">
+          <block type="controls_for" id="184" inline="true">
+            <field name="VAR">k</field>
+            <value name="FROM">
+              <block type="math_number" id="185">
+                <field name="NUM">7</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="186">
+                <field name="NUM">9</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="inout_custom_analog_write" id="174" inline="true">
+                <value name="PIN_ANALOGWRITE">
+                  <block type="variables_get" id="195">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">k</field>
+                  </block>
+                </value>
+                <value name="NUM">
+                  <block type="math_number" id="176">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_for" id="139" inline="true">
+                <field name="VAR">j</field>
+                <value name="FROM">
+                  <block type="math_number" id="140">
+                    <field name="NUM">7</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="141">
+                    <field name="NUM">9</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_for" id="87" inline="true">
+                    <field name="VAR">i</field>
+                    <value name="FROM">
+                      <block type="math_number" id="88">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number" id="89">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="inout_custom_analog_write" id="110" inline="true">
+                        <value name="PIN_ANALOGWRITE">
+                          <block type="variables_get" id="148">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">j</field>
+                          </block>
+                        </value>
+                        <value name="NUM">
+                          <block type="variables_get" id="117">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">i</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="125" inline="false">
+                            <value name="CONTENT">
+                              <block type="variables_get" id="131">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">i</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="70" inline="false">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="71">
+                                    <field name="NUM">400</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

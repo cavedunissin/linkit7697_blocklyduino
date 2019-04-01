@@ -1,0 +1,122 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="196" x="80" y="40">
+    <next>
+      <block type="initializes_loop" id="197">
+        <statement name="CONTENT">
+          <block type="inout_analog_write" id="224" inline="true">
+            <field name="PIN">7</field>
+            <value name="NUM">
+              <block type="math_number" id="225">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="237" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="238">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="239" inline="true">
+                    <field name="PIN">7</field>
+                    <value name="NUM">
+                      <block type="math_number" id="240">
+                        <field name="NUM">50</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="243" inline="false">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="244">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="inout_analog_write" id="245" inline="true">
+                            <field name="PIN">7</field>
+                            <value name="NUM">
+                              <block type="math_number" id="246">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="247" inline="false">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="248">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="inout_analog_write" id="249" inline="true">
+                                    <field name="PIN">7</field>
+                                    <value name="NUM">
+                                      <block type="math_number" id="250">
+                                        <field name="NUM">150</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="251" inline="false">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="252">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="inout_analog_write" id="253" inline="true">
+                                            <field name="PIN">7</field>
+                                            <value name="NUM">
+                                              <block type="math_number" id="254">
+                                                <field name="NUM">200</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="delay_custom" id="255" inline="false">
+                                                <value name="DELAY_TIME">
+                                                  <block type="math_number" id="256">
+                                                    <field name="NUM">1000</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="inout_analog_write" id="257" inline="true">
+                                                    <field name="PIN">7</field>
+                                                    <value name="NUM">
+                                                      <block type="math_number" id="258">
+                                                        <field name="NUM">250</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="259" inline="false">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="260">
+                                                            <field name="NUM">1000</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

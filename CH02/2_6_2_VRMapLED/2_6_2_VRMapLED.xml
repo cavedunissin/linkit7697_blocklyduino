@@ -1,0 +1,112 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1247" x="-12" y="13">
+    <statement name="CONTENT">
+      <block type="serial_init" id="1248">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="inout_analog_write" id="1249" inline="true">
+            <field name="PIN">7</field>
+            <value name="NUM">
+              <block type="math_number" id="1250">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="inout_analog_write" id="1251" inline="true">
+                <field name="PIN">8</field>
+                <value name="NUM">
+                  <block type="math_number" id="1252">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="1253" inline="true">
+                    <field name="PIN">9</field>
+                    <value name="NUM">
+                      <block type="math_number" id="1254">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1255">
+        <statement name="CONTENT">
+          <block type="variables_set" id="1380" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">VR</field>
+            <value name="VALUE">
+              <block type="inout_analog_read" id="1257">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="1258" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">Map</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id="1308" inline="true">
+                    <field name="OP">MULTIPLY</field>
+                    <value name="A">
+                      <block type="math_arithmetic" id="1343" inline="true">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="cast_number" id="1375" inline="true">
+                            <field name="TYPE">(float)</field>
+                            <value name="VAR">
+                              <block type="variables_get" id="1387">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">VR</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="1354">
+                            <field name="NUM">4096</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="1325">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="1264" inline="true">
+                    <field name="PIN">7</field>
+                    <value name="NUM">
+                      <block type="variables_get" id="1360">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">Map</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="1266" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="1359">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">Map</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,382 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1305" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="linkit_lremote" id="1306" inline="false">
+        <field name="ORIENTATION">vertical</field>
+        <value name="DEVICEID">
+          <block type="text" id="1307">
+            <field name="TEXT">jackjean</field>
+          </block>
+        </value>
+        <value name="COLUMN">
+          <block type="math_number" id="1308">
+            <field name="NUM">3</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number" id="1309">
+            <field name="NUM">4</field>
+          </block>
+        </value>
+        <statement name="CONTENT">
+          <block type="linkit_lremote_settext" id="1310" inline="true">
+            <field name="COLOUR">gray</field>
+            <value name="NAME">
+              <block type="text" id="1311">
+                <field name="TEXT">label1</field>
+              </block>
+            </value>
+            <value name="CONTENT">
+              <block type="text" id="1312">
+                <field name="TEXT">溫溼度顯示測試</field>
+              </block>
+            </value>
+            <value name="COLUMN">
+              <block type="math_number" id="1313">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ROW">
+              <block type="math_number" id="1314">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="math_number" id="1315">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="1316">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="linkit_lremote_settext" id="1317" inline="true">
+                <field name="COLOUR">gray</field>
+                <value name="NAME">
+                  <block type="text" id="1318">
+                    <field name="TEXT">label2</field>
+                  </block>
+                </value>
+                <value name="CONTENT">
+                  <block type="text" id="1319">
+                    <field name="TEXT">溫度</field>
+                  </block>
+                </value>
+                <value name="COLUMN">
+                  <block type="math_number" id="1320">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="math_number" id="1321">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="WIDTH">
+                  <block type="math_number" id="1322">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="HEIGHT">
+                  <block type="math_number" id="1323">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="linkit_lremote_setswitch" id="1324" inline="true">
+                    <field name="COLOUR">blue</field>
+                    <value name="NAME">
+                      <block type="text" id="1325">
+                        <field name="TEXT">switch1</field>
+                      </block>
+                    </value>
+                    <value name="CONTENT">
+                      <block type="text" id="1326">
+                        <field name="TEXT">溫溼度切換</field>
+                      </block>
+                    </value>
+                    <value name="COLUMN">
+                      <block type="math_number" id="1327">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="1328">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <value name="WIDTH">
+                      <block type="math_number" id="1329">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="1330">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="linkit_lremote_settext" id="1331" inline="true">
+                        <field name="COLOUR">gray</field>
+                        <value name="NAME">
+                          <block type="text" id="1332">
+                            <field name="TEXT">label3</field>
+                          </block>
+                        </value>
+                        <value name="CONTENT">
+                          <block type="text" id="1333">
+                            <field name="TEXT">曾希哲製作</field>
+                          </block>
+                        </value>
+                        <value name="COLUMN">
+                          <block type="math_number" id="1334">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ROW">
+                          <block type="math_number" id="1335">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <value name="WIDTH">
+                          <block type="math_number" id="1336">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <value name="HEIGHT">
+                          <block type="math_number" id="1337">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="lcd_i2c_setting" id="1338">
+            <field name="LCD_DIM">1602</field>
+            <field name="PIN">PIN</field>
+            <field name="I2C_ADDRESS">0x3F</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_loop" id="1339" x="88" y="438">
+    <statement name="CONTENT">
+      <block type="linkit_lremote_process" id="1340">
+        <next>
+          <block type="variables_set" id="1341" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">temp</field>
+            <value name="VALUE">
+              <block type="dht_read" id="1342">
+                <field name="SENSOR">DHT11</field>
+                <field name="PIN">2</field>
+                <field name="TYPE">C</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="1343" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">humi</field>
+                <value name="VALUE">
+                  <block type="dht_read" id="1344">
+                    <field name="SENSOR">DHT11</field>
+                    <field name="PIN">2</field>
+                    <field name="TYPE">h</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="1345" inline="false">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="1346" inline="true">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="linkit_lremote_read_value" id="1347">
+                            <field name="NAME">switch1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="1348">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="linkit_lremote_update_textlabel" id="1349" inline="true">
+                        <field name="NAME">label2</field>
+                        <value name="CONTENT">
+                          <block type="text_join" id="1350" inline="false">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="1351">
+                                <field name="TEXT">溫度 </field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="1352">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">temp</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="1353">
+                                <field name="TEXT">℃</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="linkit_lremote_update_textlabel" id="1354" inline="true">
+                        <field name="NAME">label2</field>
+                        <value name="CONTENT">
+                          <block type="text_join" id="1355" inline="false">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="1356">
+                                <field name="TEXT">濕度 </field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="1357">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">humi</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="1358">
+                                <field name="TEXT">%</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="lcd_i2c_clear" id="1359">
+                        <next>
+                          <block type="lcd_i2c_set_cursor" id="1360" inline="true">
+                            <value name="COL">
+                              <block type="math_number" id="1361">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="1362">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_put" id="1363" inline="false">
+                                <value name="VALUE">
+                                  <block type="text" id="1364">
+                                    <field name="TEXT">Temp: </field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lcd_i2c_set_cursor" id="1365" inline="true">
+                                    <value name="COL">
+                                      <block type="math_number" id="1366">
+                                        <field name="NUM">6</field>
+                                      </block>
+                                    </value>
+                                    <value name="ROW">
+                                      <block type="math_number" id="1367">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="lcd_i2c_put" id="1368" inline="false">
+                                        <value name="VALUE">
+                                          <block type="variables_get" id="1369">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">temp</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="lcd_i2c_set_cursor" id="1370" inline="true">
+                                            <value name="COL">
+                                              <block type="math_number" id="1371">
+                                                <field name="NUM">0</field>
+                                              </block>
+                                            </value>
+                                            <value name="ROW">
+                                              <block type="math_number" id="1372">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="lcd_i2c_put" id="1373" inline="false">
+                                                <value name="VALUE">
+                                                  <block type="text" id="1374">
+                                                    <field name="TEXT">Humidity: </field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="lcd_i2c_set_cursor" id="1375" inline="true">
+                                                    <value name="COL">
+                                                      <block type="math_number" id="1376">
+                                                        <field name="NUM">10</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ROW">
+                                                      <block type="math_number" id="1377">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="lcd_i2c_put" id="1378" inline="false">
+                                                        <value name="VALUE">
+                                                          <block type="variables_get" id="1379">
+                                                            <field name="TYPE">Number</field>
+                                                            <field name="VAR">humi</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="delay_custom" id="1380" inline="false">
+                                                            <value name="DELAY_TIME">
+                                                              <block type="math_number" id="1381">
+                                                                <field name="NUM">50</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

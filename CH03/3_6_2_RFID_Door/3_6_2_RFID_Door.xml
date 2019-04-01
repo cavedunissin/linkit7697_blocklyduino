@@ -1,0 +1,147 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="829" x="-337" y="-37">
+    <statement name="CONTENT">
+      <block type="serial_init" id="830">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="inout_digital_write" id="831">
+            <field name="PIN">3</field>
+            <field name="STAT">LOW</field>
+            <next>
+              <block type="serial_println" id="832" inline="false">
+                <value name="CONTENT">
+                  <block type="text" id="833">
+                    <field name="TEXT">大門已關閉</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="834">
+        <statement name="CONTENT">
+          <block type="variables_set" id="835" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">RFidNo</field>
+            <value name="VALUE">
+              <block type="mfrc522_read" id="836">
+                <field name="SENSOR">DUMMY</field>
+                <field name="SIGNAL">SPI</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="837" inline="false">
+                <value name="IF0">
+                  <block type="logic_compare" id="838" inline="true">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="839">
+                        <field name="TYPE">String</field>
+                        <field name="VAR">RFidNo</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="840">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_println" id="867" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="868">
+                        <field name="TEXT">偵測到RFID卡片!</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="841" inline="false">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare" id="842" inline="true">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="843">
+                                <field name="TYPE">String</field>
+                                <field name="VAR">RFidNo</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="844">
+                                <field name="TEXT">你的RFID卡號</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="inout_digital_write" id="845">
+                            <field name="PIN">3</field>
+                            <field name="STAT">HIGH</field>
+                            <next>
+                              <block type="serial_println" id="846" inline="false">
+                                <value name="CONTENT">
+                                  <block type="text" id="847">
+                                    <field name="TEXT">大門已開啟</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="848" inline="false">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="849">
+                                        <field name="NUM">5000</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="inout_digital_write" id="850">
+                                        <field name="PIN">3</field>
+                                        <field name="STAT">LOW</field>
+                                        <next>
+                                          <block type="serial_println" id="851" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="text" id="852">
+                                                <field name="TEXT">大門已關閉</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="serial_println" id="853" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="854">
+                                <field name="TEXT">不是開門卡片!</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="855" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="856">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,204 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1743" x="-12" y="88">
+    <statement name="CONTENT">
+      <block type="serial_init" id="1744">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="inout_digital_write" id="1745">
+            <field name="PIN">7</field>
+            <field name="STAT">LOW</field>
+            <next>
+              <block type="inout_digital_write" id="1746">
+                <field name="PIN">8</field>
+                <field name="STAT">LOW</field>
+                <next>
+                  <block type="inout_digital_write" id="1747">
+                    <field name="PIN">9</field>
+                    <field name="STAT">LOW</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_loop" id="1748" x="313" y="88">
+    <statement name="CONTENT">
+      <block type="variables_set" id="1749" inline="true">
+        <field name="TYPE">Number</field>
+        <field name="VAR">VR</field>
+        <value name="VALUE">
+          <block type="inout_analog_read" id="1750">
+            <field name="PIN">A0</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_println" id="1751" inline="false">
+            <value name="CONTENT">
+              <block type="variables_get" id="1752">
+                <field name="TYPE">Number</field>
+                <field name="VAR">VR</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="1753" inline="false">
+                <value name="IF0">
+                  <block type="logic_compare" id="1754" inline="true">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="variables_get" id="1755">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">VR</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="1756">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_if" id="1757" inline="false">
+                    <value name="IF0">
+                      <block type="logic_compare" id="1758" inline="true">
+                        <field name="OP">LTE</field>
+                        <value name="A">
+                          <block type="variables_get" id="1759">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">VR</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="1760">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="inout_digital_write" id="1761">
+                        <field name="PIN">7</field>
+                        <field name="STAT">HIGH</field>
+                        <next>
+                          <block type="inout_digital_write" id="1762">
+                            <field name="PIN">8</field>
+                            <field name="STAT">LOW</field>
+                            <next>
+                              <block type="inout_digital_write" id="1763">
+                                <field name="PIN">9</field>
+                                <field name="STAT">LOW</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="1764" inline="false">
+                    <value name="IF0">
+                      <block type="logic_compare" id="1765" inline="true">
+                        <field name="OP">GT</field>
+                        <value name="A">
+                          <block type="variables_get" id="1766">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">VR</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="1767">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="controls_if" id="1768" inline="false">
+                        <value name="IF0">
+                          <block type="logic_compare" id="1769" inline="true">
+                            <field name="OP">LTE</field>
+                            <value name="A">
+                              <block type="variables_get" id="1770">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">VR</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="1771">
+                                <field name="NUM">2000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="inout_digital_write" id="1772">
+                            <field name="PIN">7</field>
+                            <field name="STAT">LOW</field>
+                            <next>
+                              <block type="inout_digital_write" id="1773">
+                                <field name="PIN">8</field>
+                                <field name="STAT">HIGH</field>
+                                <next>
+                                  <block type="inout_digital_write" id="1774">
+                                    <field name="PIN">9</field>
+                                    <field name="STAT">LOW</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="1775" inline="false">
+                        <value name="IF0">
+                          <block type="logic_compare" id="1776" inline="true">
+                            <field name="OP">GT</field>
+                            <value name="A">
+                              <block type="variables_get" id="1777">
+                                <field name="TYPE">Number</field>
+                                <field name="VAR">VR</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="1778">
+                                <field name="NUM">2000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="inout_digital_write" id="1779">
+                            <field name="PIN">7</field>
+                            <field name="STAT">LOW</field>
+                            <next>
+                              <block type="inout_digital_write" id="1780">
+                                <field name="PIN">8</field>
+                                <field name="STAT">LOW</field>
+                                <next>
+                                  <block type="inout_digital_write" id="1781">
+                                    <field name="PIN">9</field>
+                                    <field name="STAT">HIGH</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

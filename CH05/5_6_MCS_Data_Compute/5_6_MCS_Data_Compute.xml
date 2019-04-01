@@ -1,0 +1,162 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="232" x="13" y="-12">
+    <statement name="CONTENT">
+      <block type="serial_init" id="233">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="serial_println" id="234" inline="false">
+            <value name="CONTENT">
+              <block type="text" id="235">
+                <field name="TEXT">WIFI連線開始</field>
+              </block>
+            </value>
+            <next>
+              <block type="linkit_wifi_wait_until_ready" id="236" inline="false">
+                <value name="SSID">
+                  <block type="text" id="237">
+                    <field name="TEXT">jackjean</field>
+                  </block>
+                </value>
+                <value name="PASSWORD">
+                  <block type="text" id="238">
+                    <field name="TEXT">0226852016</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="239" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="240">
+                        <field name="TEXT">WIFI連線成功</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="241" inline="false">
+                        <value name="CONTENT">
+                          <block type="text_join" id="242" inline="false">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="243">
+                                <field name="TEXT">IP是</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="linkit_wifi_ip_address" id="244"></block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="245" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="246">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="mcs" id="247" inline="false">
+                                <value name="DEVICEID">
+                                  <block type="text" id="248">
+                                    <field name="TEXT">DBpkpYRm</field>
+                                  </block>
+                                </value>
+                                <value name="DEVICEKEY">
+                                  <block type="text" id="249">
+                                    <field name="TEXT">v8A0gHePSnc3wyO5</field>
+                                  </block>
+                                </value>
+                                <statement name="CONTENT">
+                                  <block type="mcs_set_display_channel" id="250" inline="true">
+                                    <field name="TYPE">int</field>
+                                    <value name="DISPLAY_CHANNEL">
+                                      <block type="text" id="251">
+                                        <field name="TEXT">classifier</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="serial_println" id="252" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="text" id="253">
+                                        <field name="TEXT">MCS連線成功</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="254">
+        <statement name="CONTENT">
+          <block type="mcs_process" id="255">
+            <next>
+              <block type="variables_set" id="256" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">RandomNo</field>
+                <value name="VALUE">
+                  <block type="math_random_max_min" id="257" inline="true">
+                    <value name="MIN">
+                      <block type="math_number" id="258">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="MAX">
+                      <block type="math_number" id="259">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="260" inline="false">
+                    <value name="CONTENT">
+                      <block type="variables_get" id="261">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">RandomNo</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="mcs_channel2_value" id="262" inline="true">
+                        <value name="CHANNEL2_VALUE">
+                          <block type="text" id="263">
+                            <field name="TEXT">classifier</field>
+                          </block>
+                        </value>
+                        <value name="SET_VALUE">
+                          <block type="variables_get" id="264">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">RandomNo</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="265" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="266">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

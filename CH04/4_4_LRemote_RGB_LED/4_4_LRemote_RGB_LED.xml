@@ -1,0 +1,348 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1234" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="linkit_lremote" id="1235" inline="false">
+        <field name="ORIENTATION">vertical</field>
+        <value name="DEVICEID">
+          <block type="text" id="1236">
+            <field name="TEXT">jackjean</field>
+          </block>
+        </value>
+        <value name="COLUMN">
+          <block type="math_number" id="1237">
+            <field name="NUM">3</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number" id="1238">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <statement name="CONTENT">
+          <block type="linkit_lremote_settext" id="1239" inline="true">
+            <field name="COLOUR">gray</field>
+            <value name="NAME">
+              <block type="text" id="1240">
+                <field name="TEXT">label1</field>
+              </block>
+            </value>
+            <value name="CONTENT">
+              <block type="text" id="1241">
+                <field name="TEXT">RGB LED遙控</field>
+              </block>
+            </value>
+            <value name="COLUMN">
+              <block type="math_number" id="1242">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ROW">
+              <block type="math_number" id="1243">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="math_number" id="1244">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="1245">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="linkit_lremote_setslider" id="1246" inline="true">
+                <field name="COLOUR">blue</field>
+                <value name="NAME">
+                  <block type="text" id="1247">
+                    <field name="TEXT">slider1</field>
+                  </block>
+                </value>
+                <value name="CONTENT">
+                  <block type="text" id="1248">
+                    <field name="TEXT">藍燈</field>
+                  </block>
+                </value>
+                <value name="COLUMN">
+                  <block type="math_number" id="1249">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="math_number" id="1250">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="WIDTH">
+                  <block type="math_number" id="1251">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="HEIGHT">
+                  <block type="math_number" id="1252">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="MINIMUM">
+                  <block type="math_number" id="1253">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="MAXIMUM">
+                  <block type="math_number" id="1254">
+                    <field name="NUM">255</field>
+                  </block>
+                </value>
+                <value name="INITIAL">
+                  <block type="math_number" id="1255">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="linkit_lremote_setslider" id="1256" inline="true">
+                    <field name="COLOUR">green</field>
+                    <value name="NAME">
+                      <block type="text" id="1257">
+                        <field name="TEXT">slider2</field>
+                      </block>
+                    </value>
+                    <value name="CONTENT">
+                      <block type="text" id="1258">
+                        <field name="TEXT">綠燈</field>
+                      </block>
+                    </value>
+                    <value name="COLUMN">
+                      <block type="math_number" id="1259">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="1260">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <value name="WIDTH">
+                      <block type="math_number" id="1261">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="1262">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="MINIMUM">
+                      <block type="math_number" id="1263">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="MAXIMUM">
+                      <block type="math_number" id="1264">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                    <value name="INITIAL">
+                      <block type="math_number" id="1265">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="linkit_lremote_setslider" id="1266" inline="true">
+                        <field name="COLOUR">pink</field>
+                        <value name="NAME">
+                          <block type="text" id="1267">
+                            <field name="TEXT">slider3</field>
+                          </block>
+                        </value>
+                        <value name="CONTENT">
+                          <block type="text" id="1268">
+                            <field name="TEXT">紅燈</field>
+                          </block>
+                        </value>
+                        <value name="COLUMN">
+                          <block type="math_number" id="1269">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ROW">
+                          <block type="math_number" id="1270">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <value name="WIDTH">
+                          <block type="math_number" id="1271">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <value name="HEIGHT">
+                          <block type="math_number" id="1272">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="MINIMUM">
+                          <block type="math_number" id="1273">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="MAXIMUM">
+                          <block type="math_number" id="1274">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <value name="INITIAL">
+                          <block type="math_number" id="1275">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="linkit_lremote_settext" id="1276" inline="true">
+                            <field name="COLOUR">gray</field>
+                            <value name="NAME">
+                              <block type="text" id="1277">
+                                <field name="TEXT">label2</field>
+                              </block>
+                            </value>
+                            <value name="CONTENT">
+                              <block type="text" id="1278">
+                                <field name="TEXT">曾希哲製作</field>
+                              </block>
+                            </value>
+                            <value name="COLUMN">
+                              <block type="math_number" id="1279">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="1280">
+                                <field name="NUM">4</field>
+                              </block>
+                            </value>
+                            <value name="WIDTH">
+                              <block type="math_number" id="1281">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <value name="HEIGHT">
+                              <block type="math_number" id="1282">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="inout_analog_write" id="1283" inline="true">
+            <field name="PIN">6</field>
+            <value name="NUM">
+              <block type="math_number" id="1284">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="inout_analog_write" id="1285" inline="true">
+                <field name="PIN">5</field>
+                <value name="NUM">
+                  <block type="math_number" id="1286">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="1287" inline="true">
+                    <field name="PIN">4</field>
+                    <value name="NUM">
+                      <block type="math_number" id="1288">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1289">
+        <statement name="CONTENT">
+          <block type="linkit_lremote_process" id="1290">
+            <next>
+              <block type="controls_if" id="1291" inline="false">
+                <value name="IF0">
+                  <block type="linkit_lremote_is_written" id="1292">
+                    <field name="NAME">slider1</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="inout_analog_write" id="1293" inline="true">
+                    <field name="PIN">6</field>
+                    <value name="NUM">
+                      <block type="linkit_lremote_read_value" id="1294">
+                        <field name="NAME">slider1</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="1295" inline="false">
+                    <value name="IF0">
+                      <block type="linkit_lremote_is_written" id="1296">
+                        <field name="NAME">slider2</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="inout_analog_write" id="1297" inline="true">
+                        <field name="PIN">5</field>
+                        <value name="NUM">
+                          <block type="linkit_lremote_read_value" id="1298">
+                            <field name="NAME">slider2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id="1299" inline="false">
+                        <value name="IF0">
+                          <block type="linkit_lremote_is_written" id="1300">
+                            <field name="NAME">slider3</field>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="inout_analog_write" id="1301" inline="true">
+                            <field name="PIN">4</field>
+                            <value name="NUM">
+                              <block type="linkit_lremote_read_value" id="1302">
+                                <field name="NAME">slider3</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="delay_custom" id="1303" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="1304">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,264 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="55" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="56">
+        <field name="SPEED">115200</field>
+        <next>
+          <block type="variables_set" id="57" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">X_Position</field>
+            <value name="VALUE">
+              <block type="math_number" id="58">
+                <field name="NUM">90</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="59" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">Y_Position</field>
+                <value name="VALUE">
+                  <block type="math_number" id="60">
+                    <field name="NUM">90</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_write" id="61" inline="true">
+                    <field name="PIN">2</field>
+                    <value name="ANGLE">
+                      <block type="variables_get" id="62">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">X_Position</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="servo_write" id="63" inline="true">
+                        <field name="PIN">5</field>
+                        <value name="ANGLE">
+                          <block type="variables_get" id="64">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">Y_Position</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="65" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="66">
+                                <field name="TEXT">X軸:</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_println" id="67" inline="false">
+                                <value name="CONTENT">
+                                  <block type="servo_read" id="68">
+                                    <field name="PIN">2</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_print" id="69" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="text" id="70">
+                                        <field name="TEXT">Y軸:</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="71" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="servo_read" id="72">
+                                            <field name="PIN">5</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="delay_custom" id="73" inline="false">
+                                            <value name="DELAY_TIME">
+                                              <block type="math_number" id="74">
+                                                <field name="NUM">1000</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="initializes_loop" id="75" x="88" y="413">
+    <statement name="CONTENT">
+      <block type="variables_set" id="76" inline="true">
+        <field name="TYPE">Number</field>
+        <field name="VAR">X_Position</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="77" inline="true">
+            <field name="OP">MULTIPLY</field>
+            <value name="A">
+              <block type="math_arithmetic" id="78" inline="true">
+                <field name="OP">DIVIDE</field>
+                <value name="A">
+                  <block type="math_arithmetic" id="79" inline="true">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="adxl345_read" id="80">
+                        <field name="SENSOR">DUMMY</field>
+                        <field name="PIN">PIN</field>
+                        <field name="AXIS">X</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="81">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="82">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="83">
+                <field name="NUM">170</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="84" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">Y_Position</field>
+            <value name="VALUE">
+              <block type="math_arithmetic" id="85" inline="true">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <block type="math_arithmetic" id="86" inline="true">
+                    <field name="OP">DIVIDE</field>
+                    <value name="A">
+                      <block type="math_arithmetic" id="87" inline="true">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="adxl345_read" id="88">
+                            <field name="SENSOR">DUMMY</field>
+                            <field name="PIN">PIN</field>
+                            <field name="AXIS">Y</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="89">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="90">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="91">
+                    <field name="NUM">170</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="servo_write" id="92" inline="true">
+                <field name="PIN">2</field>
+                <value name="ANGLE">
+                  <block type="variables_get" id="93">
+                    <field name="TYPE">Number</field>
+                    <field name="VAR">X_Position</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="delay_custom" id="94" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="95">
+                        <field name="NUM">50</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="servo_write" id="96" inline="true">
+                        <field name="PIN">5</field>
+                        <value name="ANGLE">
+                          <block type="variables_get" id="97">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">Y_Position</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay_custom" id="98" inline="false">
+                            <value name="DELAY_TIME">
+                              <block type="math_number" id="99">
+                                <field name="NUM">50</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="serial_print" id="100" inline="false">
+                                <value name="CONTENT">
+                                  <block type="text" id="101">
+                                    <field name="TEXT">X軸:</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="102" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="103">
+                                        <field name="TYPE">Number</field>
+                                        <field name="VAR">X_Position</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_print" id="104" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="text" id="105">
+                                            <field name="TEXT">Y軸:</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="serial_println" id="106" inline="false">
+                                            <value name="CONTENT">
+                                              <block type="variables_get" id="107">
+                                                <field name="TYPE">Number</field>
+                                                <field name="VAR">Y_Position</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

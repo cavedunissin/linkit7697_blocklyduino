@@ -1,0 +1,31 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="22" x="38" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="23">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="24">
+        <statement name="CONTENT">
+          <block type="serial_println" id="32" inline="false">
+            <value name="CONTENT">
+              <block type="inout_digital_read" id="46">
+                <field name="PIN">2</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="58" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="59">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

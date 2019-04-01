@@ -1,0 +1,162 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="79" x="38" y="-62">
+    <statement name="CONTENT">
+      <block type="serial_init" id="80">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="linkit_wifi_wait_until_ready" id="81" inline="false">
+            <value name="SSID">
+              <block type="text" id="82">
+                <field name="TEXT">你的WiFi熱點帳號</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="83">
+                <field name="TEXT">密碼</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_println" id="84" inline="false">
+                <value name="CONTENT">
+                  <block type="text_join" id="85" inline="false">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="86">
+                        <field name="TEXT">IP 是</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="linkit_wifi_ip_address" id="87"></block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="88">
+        <statement name="CONTENT">
+          <block type="variables_set" id="89" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">item</field>
+            <value name="VALUE">
+              <block type="mfrc522_read" id="90">
+                <field name="SENSOR">DUMMY</field>
+                <field name="SIGNAL">SPI</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="91" inline="false">
+                <value name="IF0">
+                  <block type="logic_compare" id="92" inline="true">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="93">
+                        <field name="TYPE">String</field>
+                        <field name="VAR">item</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="94">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="serial_print" id="95" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="96">
+                        <field name="TEXT">Card No is </field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="97" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="98">
+                            <field name="TYPE">String</field>
+                            <field name="VAR">item</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="custom_tone" id="111" inline="true">
+                            <value name="PIN">
+                              <block type="math_number" id="112">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="FREQ">
+                              <block type="math_number" id="113">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                            <value name="DURATION">
+                              <block type="math_number" id="114">
+                                <field name="NUM">500</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="120" inline="false">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="129" inline="true">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="123">
+                                        <field name="TYPE">String</field>
+                                        <field name="VAR">item</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="text" id="136">
+                                        <field name="TEXT">你的FRID卡號</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="ifttt_get_url" id="99" inline="false">
+                                    <value name="EVENT">
+                                      <block type="text" id="100">
+                                        <field name="TEXT">你設定的觸發事件</field>
+                                      </block>
+                                    </value>
+                                    <value name="KEY">
+                                      <block type="text" id="101">
+                                        <field name="TEXT">觸發密碼</field>
+                                      </block>
+                                    </value>
+                                    <value name="VALUE1">
+                                      <block type="text" id="137">
+                                        <field name="TEXT">你的姓名</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="serial_println" id="103" inline="false">
+                                        <value name="CONTENT">
+                                          <block type="text" id="104">
+                                            <field name="TEXT">觸發IFTTTevent</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

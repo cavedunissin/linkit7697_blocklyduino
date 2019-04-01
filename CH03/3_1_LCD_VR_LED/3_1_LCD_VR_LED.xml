@@ -1,0 +1,238 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1420" x="13" y="-12">
+    <statement name="CONTENT">
+      <block type="inout_analog_write" id="1421" inline="true">
+        <field name="PIN">2</field>
+        <value name="NUM">
+          <block type="math_number" id="1422">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="lcd_i2c_setting" id="1423">
+            <field name="LCD_DIM">1602</field>
+            <field name="PIN">PIN</field>
+            <field name="I2C_ADDRESS">0x3F</field>
+            <next>
+              <block type="lcd_i2c_light" id="1424">
+                <field name="BACKLIGHT_STATE">ON</field>
+                <next>
+                  <block type="lcd_i2c_clear" id="1425">
+                    <next>
+                      <block type="lcd_i2c_set_cursor" id="1426" inline="true">
+                        <value name="COL">
+                          <block type="math_number" id="1427">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ROW">
+                          <block type="math_number" id="1428">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lcd_i2c_put" id="1429" inline="false">
+                            <value name="VALUE">
+                              <block type="text" id="1430">
+                                <field name="TEXT">HELLO</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_set_cursor" id="1431" inline="true">
+                                <value name="COL">
+                                  <block type="math_number" id="1432">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="ROW">
+                                  <block type="math_number" id="1433">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lcd_i2c_put" id="1434" inline="false">
+                                    <value name="VALUE">
+                                      <block type="text" id="1435">
+                                        <field name="TEXT">WORLD!!</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="1436" inline="false">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="1437">
+                                            <field name="NUM">5000</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="1438">
+        <statement name="CONTENT">
+          <block type="variables_set" id="1439" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">VR</field>
+            <value name="VALUE">
+              <block type="inout_analog_read" id="1440">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="1441" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">LED_PWM</field>
+                <value name="VALUE">
+                  <block type="math_map_int" id="1442" inline="false">
+                    <field name="FROMLOW">0</field>
+                    <field name="FROMHIGH">4095</field>
+                    <field name="TOLOW">0</field>
+                    <field name="TOHIGH">255</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="1443">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">VR</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="1444" inline="true">
+                    <field name="PIN">2</field>
+                    <value name="NUM">
+                      <block type="variables_get" id="1445">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">LED_PWM</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lcd_i2c_clear" id="1446">
+                        <next>
+                          <block type="lcd_i2c_set_cursor" id="1447" inline="true">
+                            <value name="COL">
+                              <block type="math_number" id="1448">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="1449">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_put" id="1450" inline="false">
+                                <value name="VALUE">
+                                  <block type="text" id="1451">
+                                    <field name="TEXT">VR : </field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lcd_i2c_set_cursor" id="1452" inline="true">
+                                    <value name="COL">
+                                      <block type="math_number" id="1453">
+                                        <field name="NUM">4</field>
+                                      </block>
+                                    </value>
+                                    <value name="ROW">
+                                      <block type="math_number" id="1454">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="lcd_i2c_put" id="1455" inline="false">
+                                        <value name="VALUE">
+                                          <block type="variables_get" id="1456">
+                                            <field name="TYPE">Number</field>
+                                            <field name="VAR">VR</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="lcd_i2c_set_cursor" id="1457" inline="true">
+                                            <value name="COL">
+                                              <block type="math_number" id="1458">
+                                                <field name="NUM">0</field>
+                                              </block>
+                                            </value>
+                                            <value name="ROW">
+                                              <block type="math_number" id="1459">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="lcd_i2c_put" id="1460" inline="false">
+                                                <value name="VALUE">
+                                                  <block type="text" id="1461">
+                                                    <field name="TEXT">LED PWM : </field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="lcd_i2c_set_cursor" id="1462" inline="true">
+                                                    <value name="COL">
+                                                      <block type="math_number" id="1463">
+                                                        <field name="NUM">9</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ROW">
+                                                      <block type="math_number" id="1464">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="lcd_i2c_put" id="1465" inline="false">
+                                                        <value name="VALUE">
+                                                          <block type="variables_get" id="1466">
+                                                            <field name="TYPE">Number</field>
+                                                            <field name="VAR">LED_PWM</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="delay_custom" id="1467" inline="false">
+                                                            <value name="DELAY_TIME">
+                                                              <block type="math_number" id="1468">
+                                                                <field name="NUM">300</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

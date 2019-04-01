@@ -1,0 +1,371 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="343" x="-212" y="-12">
+    <statement name="CONTENT">
+      <block type="variables_set" id="344" inline="true">
+        <field name="TYPE">Float</field>
+        <field name="VAR">MaxDist</field>
+        <value name="VALUE">
+          <block type="math_number" id="345">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <next>
+          <block type="lcd_i2c_setting" id="346">
+            <field name="LCD_DIM">1602</field>
+            <field name="PIN">PIN</field>
+            <field name="I2C_ADDRESS">0x3F</field>
+            <next>
+              <block type="lcd_i2c_light" id="347">
+                <field name="BACKLIGHT_STATE">ON</field>
+                <next>
+                  <block type="lcd_i2c_clear" id="348">
+                    <next>
+                      <block type="lcd_i2c_set_cursor" id="349" inline="true">
+                        <value name="COL">
+                          <block type="math_number" id="350">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ROW">
+                          <block type="math_number" id="351">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lcd_i2c_put" id="352" inline="false">
+                            <value name="VALUE">
+                              <block type="text" id="353">
+                                <field name="TEXT">Distance Metter</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_set_cursor" id="354" inline="true">
+                                <value name="COL">
+                                  <block type="math_number" id="355">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="ROW">
+                                  <block type="math_number" id="356">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lcd_i2c_put" id="357" inline="false">
+                                    <value name="VALUE">
+                                      <block type="text" id="358">
+                                        <field name="TEXT">Start now!!</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="359" inline="false">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="360">
+                                            <field name="NUM">5000</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="361">
+        <statement name="CONTENT">
+          <block type="lcd_i2c_clear" id="362">
+            <next>
+              <block type="controls_if" id="363" inline="false">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="364" inline="true">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="inout_digital_read" id="365">
+                        <field name="PIN">6</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="inout_highlow" id="366">
+                        <field name="BOOL">LOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="lcd_i2c_set_cursor" id="367" inline="true">
+                    <value name="COL">
+                      <block type="math_number" id="368">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="369">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lcd_i2c_put" id="370" inline="false">
+                        <value name="VALUE">
+                          <block type="text" id="371">
+                            <field name="TEXT">cm:</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lcd_i2c_set_cursor" id="372" inline="true">
+                            <value name="COL">
+                              <block type="math_number" id="373">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="374">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_put" id="375" inline="false">
+                                <value name="VALUE">
+                                  <block type="ultrasonic_read" id="376">
+                                    <field name="SENSOR">DUMMY</field>
+                                    <field name="TRIG">3</field>
+                                    <field name="ECHO">2</field>
+                                    <field name="MEASUREMENT">CM</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lcd_i2c_set_cursor" id="377" inline="true">
+                                    <value name="COL">
+                                      <block type="math_number" id="378">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="ROW">
+                                      <block type="math_number" id="379">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="lcd_i2c_put" id="380" inline="false">
+                                        <value name="VALUE">
+                                          <block type="text" id="381">
+                                            <field name="TEXT">inch:</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="lcd_i2c_set_cursor" id="382" inline="true">
+                                            <value name="COL">
+                                              <block type="math_number" id="383">
+                                                <field name="NUM">5</field>
+                                              </block>
+                                            </value>
+                                            <value name="ROW">
+                                              <block type="math_number" id="384">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="lcd_i2c_put" id="385" inline="false">
+                                                <value name="VALUE">
+                                                  <block type="ultrasonic_read" id="386">
+                                                    <field name="SENSOR">DUMMY</field>
+                                                    <field name="TRIG">3</field>
+                                                    <field name="ECHO">2</field>
+                                                    <field name="MEASUREMENT">INCH</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="lcd_i2c_set_cursor" id="387" inline="true">
+                    <value name="COL">
+                      <block type="math_number" id="388">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="389">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lcd_i2c_put" id="390" inline="false">
+                        <value name="VALUE">
+                          <block type="text" id="391">
+                            <field name="TEXT">Max Dist:</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lcd_i2c_set_cursor" id="392" inline="true">
+                            <value name="COL">
+                              <block type="math_number" id="393">
+                                <field name="NUM">9</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="394">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_put" id="395" inline="false">
+                                <value name="VALUE">
+                                  <block type="variables_get" id="396">
+                                    <field name="TYPE">Float</field>
+                                    <field name="VAR">MaxDist</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="397" inline="false">
+                                    <mutation else="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="398" inline="true">
+                                        <field name="OP">LTE</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="399">
+                                            <field name="TYPE">Float</field>
+                                            <field name="VAR">MaxDist</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="ultrasonic_read" id="400">
+                                            <field name="SENSOR">DUMMY</field>
+                                            <field name="TRIG">3</field>
+                                            <field name="ECHO">2</field>
+                                            <field name="MEASUREMENT">CM</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="lcd_i2c_set_cursor" id="401" inline="true">
+                                        <value name="COL">
+                                          <block type="math_number" id="402">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="ROW">
+                                          <block type="math_number" id="403">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="lcd_i2c_put" id="404" inline="false">
+                                            <value name="VALUE">
+                                              <block type="text" id="405">
+                                                <field name="TEXT">Normal</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="lcd_i2c_set_cursor" id="406" inline="true">
+                                        <value name="COL">
+                                          <block type="math_number" id="407">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="ROW">
+                                          <block type="math_number" id="408">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="lcd_i2c_put" id="409" inline="false">
+                                            <value name="VALUE">
+                                              <block type="text" id="410">
+                                                <field name="TEXT">Alarm!!</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="controls_repeat" id="411">
+                                                <field name="TIMES">3</field>
+                                                <statement name="DO">
+                                                  <block type="custom_tone" id="412" inline="true">
+                                                    <value name="PIN">
+                                                      <block type="math_number" id="413">
+                                                        <field name="NUM">4</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="FREQ">
+                                                      <block type="math_number" id="414">
+                                                        <field name="NUM">1000</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="DURATION">
+                                                      <block type="math_number" id="415">
+                                                        <field name="NUM">300</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="delay_custom" id="416" inline="false">
+                                                        <value name="DELAY_TIME">
+                                                          <block type="math_number" id="417">
+                                                            <field name="NUM">500</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="418" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="419">
+                        <field name="NUM">500</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

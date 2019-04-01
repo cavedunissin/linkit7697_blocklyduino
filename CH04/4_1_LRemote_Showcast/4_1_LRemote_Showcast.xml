@@ -1,0 +1,217 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="339" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="linkit_lremote" id="340" inline="false">
+        <field name="ORIENTATION">vertical</field>
+        <value name="DEVICEID">
+          <block type="text" id="341">
+            <field name="TEXT">jackjean</field>
+          </block>
+        </value>
+        <value name="COLUMN">
+          <block type="math_number" id="342">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number" id="343">
+            <field name="NUM">6</field>
+          </block>
+        </value>
+        <statement name="CONTENT">
+          <block type="linkit_lremote_settext" id="344" inline="true">
+            <field name="COLOUR">gray</field>
+            <value name="NAME">
+              <block type="text" id="345">
+                <field name="TEXT">label1</field>
+              </block>
+            </value>
+            <value name="CONTENT">
+              <block type="text" id="346">
+                <field name="TEXT">曾希哲測試</field>
+              </block>
+            </value>
+            <value name="COLUMN">
+              <block type="math_number" id="347">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ROW">
+              <block type="math_number" id="348">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="math_number" id="349">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="350">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="linkit_lremote_setswitch" id="351" inline="true">
+                <field name="COLOUR">gray</field>
+                <value name="NAME">
+                  <block type="text" id="352">
+                    <field name="TEXT">switch1</field>
+                  </block>
+                </value>
+                <value name="CONTENT">
+                  <block type="text" id="353">
+                    <field name="TEXT">USR LED</field>
+                  </block>
+                </value>
+                <value name="COLUMN">
+                  <block type="math_number" id="354">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="math_number" id="355">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="WIDTH">
+                  <block type="math_number" id="356">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <value name="HEIGHT">
+                  <block type="math_number" id="357">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="linkit_lremote_setbuttonsquare" id="358" inline="true">
+                    <field name="COLOUR">pink</field>
+                    <value name="NAME">
+                      <block type="text" id="359">
+                        <field name="TEXT">button1</field>
+                      </block>
+                    </value>
+                    <value name="CONTENT">
+                      <block type="text" id="360">
+                        <field name="TEXT">PRESS ME</field>
+                      </block>
+                    </value>
+                    <value name="COLUMN">
+                      <block type="math_number" id="361">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="362">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="WIDTH">
+                      <block type="math_number" id="363">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="364">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="linkit_lremote_setslider" id="365" inline="true">
+                        <field name="COLOUR">orange</field>
+                        <value name="NAME">
+                          <block type="text" id="366">
+                            <field name="TEXT">slider1</field>
+                          </block>
+                        </value>
+                        <value name="CONTENT">
+                          <block type="text" id="367">
+                            <field name="TEXT">Value Slider</field>
+                          </block>
+                        </value>
+                        <value name="COLUMN">
+                          <block type="math_number" id="368">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="ROW">
+                          <block type="math_number" id="369">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="WIDTH">
+                          <block type="math_number" id="370">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                        <value name="HEIGHT">
+                          <block type="math_number" id="371">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="MINIMUM">
+                          <block type="math_number" id="372">
+                            <field name="NUM">-100</field>
+                          </block>
+                        </value>
+                        <value name="MAXIMUM">
+                          <block type="math_number" id="373">
+                            <field name="NUM">1024</field>
+                          </block>
+                        </value>
+                        <value name="INITIAL">
+                          <block type="math_number" id="374">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="linkit_lremote_setbuttoncircle" id="375" inline="true">
+                            <field name="COLOUR">green</field>
+                            <value name="NAME">
+                              <block type="text" id="376">
+                                <field name="TEXT">circle1</field>
+                              </block>
+                            </value>
+                            <value name="CONTENT">
+                              <block type="text" id="377">
+                                <field name="TEXT">!BIG!</field>
+                              </block>
+                            </value>
+                            <value name="COLUMN">
+                              <block type="math_number" id="378">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="379">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <value name="WIDTH">
+                              <block type="math_number" id="380">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <value name="HEIGHT">
+                              <block type="math_number" id="381">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="382"></block>
+    </next>
+  </block>
+</xml>

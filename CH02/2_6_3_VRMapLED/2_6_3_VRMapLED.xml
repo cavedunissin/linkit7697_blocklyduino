@@ -1,0 +1,65 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="11" x="-12" y="38">
+    <statement name="CONTENT">
+      <block type="serial_init" id="12">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="13">
+        <statement name="CONTENT">
+          <block type="variables_set" id="14" inline="true">
+            <field name="TYPE">Number</field>
+            <field name="VAR">VR</field>
+            <value name="VALUE">
+              <block type="inout_analog_read" id="15">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="40" inline="true">
+                <field name="TYPE">Number</field>
+                <field name="VAR">Map</field>
+                <value name="VALUE">
+                  <block type="math_map_int" id="81" inline="false">
+                    <field name="FROMLOW">0</field>
+                    <field name="FROMHIGH">4096</field>
+                    <field name="TOLOW">0</field>
+                    <field name="TOHIGH">255</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="88">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">VR</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_analog_write" id="25" inline="true">
+                    <field name="PIN">7</field>
+                    <value name="NUM">
+                      <block type="variables_get" id="49">
+                        <field name="TYPE">Number</field>
+                        <field name="VAR">Map</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="29" inline="false">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="62">
+                            <field name="TYPE">Number</field>
+                            <field name="VAR">Map</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

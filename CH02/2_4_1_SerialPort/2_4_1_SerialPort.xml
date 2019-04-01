@@ -1,0 +1,85 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="80" y="40">
+    <statement name="CONTENT">
+      <block type="serial_init" id="10">
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="serial_print" id="18" inline="false">
+            <value name="CONTENT">
+              <block type="text" id="19">
+                <field name="TEXT">第一個顯示文字</field>
+              </block>
+            </value>
+            <next>
+              <block type="delay_custom" id="47" inline="false">
+                <value name="DELAY_TIME">
+                  <block type="math_number" id="48">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="34" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="35">
+                        <field name="TEXT">第二個顯示文字</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="delay_custom" id="60" inline="false">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="61">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_println" id="69" inline="false">
+                            <value name="CONTENT">
+                              <block type="text" id="70">
+                                <field name="TEXT">第三個顯示文字</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="delay_custom" id="82" inline="false">
+                                <value name="DELAY_TIME">
+                                  <block type="math_number" id="83">
+                                    <field name="NUM">1000</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_println" id="91" inline="false">
+                                    <value name="CONTENT">
+                                      <block type="text" id="92">
+                                        <field name="TEXT">第四個顯示文字</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="delay_custom" id="104" inline="false">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number" id="105">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

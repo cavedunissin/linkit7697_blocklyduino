@@ -1,0 +1,230 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="31" x="13" y="-62">
+    <statement name="CONTENT">
+      <block type="serial_init" id="32">
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="serial_println" id="33" inline="false">
+            <value name="CONTENT">
+              <block type="text" id="34">
+                <field name="TEXT">WiFi開始連線!</field>
+              </block>
+            </value>
+            <next>
+              <block type="linkit_wifi_wait_until_ready" id="35" inline="false">
+                <value name="SSID">
+                  <block type="text" id="36">
+                    <field name="TEXT">jackjean</field>
+                  </block>
+                </value>
+                <value name="PASSWORD">
+                  <block type="text" id="37">
+                    <field name="TEXT">0226852016</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_println" id="38" inline="false">
+                    <value name="CONTENT">
+                      <block type="text" id="39">
+                        <field name="TEXT">WiFi連線成功!</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_println" id="40" inline="false">
+                        <value name="CONTENT">
+                          <block type="text_join" id="41" inline="false">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="42">
+                                <field name="TEXT">IP is </field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="linkit_wifi_ip_address" id="43"></block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lcd_i2c_setting" id="44">
+                            <field name="LCD_DIM">1602</field>
+                            <field name="PIN">PIN</field>
+                            <field name="I2C_ADDRESS">0x3F</field>
+                            <next>
+                              <block type="rtc_set_time_from_string" id="45" inline="false">
+                                <value name="TIME_STRING">
+                                  <block type="ntp_get_datetime" id="46"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="47">
+        <statement name="CONTENT">
+          <block type="variables_set" id="48" inline="true">
+            <field name="TYPE">String</field>
+            <field name="VAR">TimeString</field>
+            <value name="VALUE">
+              <block type="rtc_get_time" id="49"></block>
+            </value>
+            <next>
+              <block type="lcd_i2c_clear" id="50">
+                <next>
+                  <block type="lcd_i2c_set_cursor" id="51" inline="true">
+                    <value name="COL">
+                      <block type="math_number" id="52">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="53">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lcd_i2c_put" id="54" inline="false">
+                        <value name="VALUE">
+                          <block type="text_join" id="55" inline="false">
+                            <mutation items="5"></mutation>
+                            <value name="ADD0">
+                              <block type="rtc_get_time_field" id="56" inline="true">
+                                <field name="FIELD">0</field>
+                                <value name="TIME_STRING">
+                                  <block type="variables_get" id="57">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">TimeString</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text" id="58">
+                                <field name="TEXT">/</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="rtc_get_time_field" id="59" inline="true">
+                                <field name="FIELD">1</field>
+                                <value name="TIME_STRING">
+                                  <block type="variables_get" id="60">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">TimeString</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ADD3">
+                              <block type="text" id="61">
+                                <field name="TEXT">/</field>
+                              </block>
+                            </value>
+                            <value name="ADD4">
+                              <block type="rtc_get_time_field" id="62" inline="true">
+                                <field name="FIELD">2</field>
+                                <value name="TIME_STRING">
+                                  <block type="variables_get" id="63">
+                                    <field name="TYPE">String</field>
+                                    <field name="VAR">TimeString</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lcd_i2c_set_cursor" id="64" inline="true">
+                            <value name="COL">
+                              <block type="math_number" id="65">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="ROW">
+                              <block type="math_number" id="66">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lcd_i2c_put" id="67" inline="false">
+                                <value name="VALUE">
+                                  <block type="text_join" id="68" inline="false">
+                                    <mutation items="5"></mutation>
+                                    <value name="ADD0">
+                                      <block type="rtc_get_time_field" id="69" inline="true">
+                                        <field name="FIELD">3</field>
+                                        <value name="TIME_STRING">
+                                          <block type="variables_get" id="70">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">TimeString</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="text" id="71">
+                                        <field name="TEXT">:</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD2">
+                                      <block type="rtc_get_time_field" id="72" inline="true">
+                                        <field name="FIELD">4</field>
+                                        <value name="TIME_STRING">
+                                          <block type="variables_get" id="73">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">TimeString</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="ADD3">
+                                      <block type="text" id="74">
+                                        <field name="TEXT">:</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD4">
+                                      <block type="rtc_get_time_field" id="75" inline="true">
+                                        <field name="FIELD">5</field>
+                                        <value name="TIME_STRING">
+                                          <block type="variables_get" id="76">
+                                            <field name="TYPE">String</field>
+                                            <field name="VAR">TimeString</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay_custom" id="77" inline="false">
+                                    <value name="DELAY_TIME">
+                                      <block type="math_number" id="78">
+                                        <field name="NUM">1000</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
